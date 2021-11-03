@@ -1,0 +1,11 @@
+main: au.com.dylangonzalez.ultimatetag.UltimateTagPlugin
+name: UltimateTag
+version: 0.1
+
+commands:
+  hello:
+    description: Say hello!
+    usage: /<hello>
+  ultimatetag:
+    description: Start an Ultimate Tag match between two players
+    usage: /ultimatetag [start|restart] [<player> <player> | null]
