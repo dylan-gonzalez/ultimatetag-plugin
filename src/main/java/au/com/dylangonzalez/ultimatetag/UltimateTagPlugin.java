@@ -2,6 +2,8 @@ package au.com.dylangonzalez.ultimatetag;
 
 import java.util.*;
 
+import au.com.dylangonzalez.events.GUIClickItemEvent;
+import au.com.dylangonzalez.ultimatetag.commands.GUICommand;
 import au.com.dylangonzalez.ultimatetag.commands.UltimateTagCommand;
 import au.com.dylangonzalez.ultimatetag.util.Message;
 import au.com.dylangonzalez.ultimatetag.util.Role;
@@ -34,10 +36,15 @@ public class UltimateTagPlugin extends JavaPlugin {
 
     static Random random = new Random();
 
+    public static final String GUITitle = "&bCustom GUI";
+
     @Override
     public void onEnable() {
         // this.getCommand("hello").setExecutor(new HelloCommand());
         this.getCommand("ultimatetag").setExecutor(new UltimateTagCommand(this));
+        this.getCommand("gui").setExecutor(new GUICommand(this));
+
+        getServer().getPluginManager().registerEvents(new GUIClickItemEvent(), this);
 
         BukkitScheduler scheduler = getServer().getScheduler();
 

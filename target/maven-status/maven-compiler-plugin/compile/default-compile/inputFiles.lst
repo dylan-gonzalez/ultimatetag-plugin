@@ -1,7 +1,9 @@
 c:\Users\Dylan Gonzalez\repos\minecraft\plugins\ultimatetag\src\main\java\au\com\dylangonzalez\ultimatetag\commands\HelloCommand.java
 c:\Users\Dylan Gonzalez\repos\minecraft\plugins\ultimatetag\src\main\java\au\com\dylangonzalez\ultimatetag\UltimateTagPlugin.java
 c:\Users\Dylan Gonzalez\repos\minecraft\plugins\ultimatetag\src\main\java\au\com\dylangonzalez\ultimatetag\util\Message.java
+c:\Users\Dylan Gonzalez\repos\minecraft\plugins\ultimatetag\src\main\java\au\com\dylangonzalez\events\PlayerEventListener.java
+c:\Users\Dylan Gonzalez\repos\minecraft\plugins\ultimatetag\src\main\java\au\com\dylangonzalez\events\GUIClickItemEvent.java
 c:\Users\Dylan Gonzalez\repos\minecraft\plugins\ultimatetag\src\main\java\au\com\dylangonzalez\ultimatetag\util\Role.java
-c:\Users\Dylan Gonzalez\repos\minecraft\plugins\ultimatetag\src\main\java\au\com\dylangonzalez\ultimatetag\PlayerEventListener.java
+c:\Users\Dylan Gonzalez\repos\minecraft\plugins\ultimatetag\src\main\java\au\com\dylangonzalez\ultimatetag\commands\GUICommand.java
 c:\Users\Dylan Gonzalez\repos\minecraft\plugins\ultimatetag\src\main\java\au\com\dylangonzalez\ultimatetag\commands\UltimateTagCommand.java
 c:\Users\Dylan Gonzalez\repos\minecraft\plugins\ultimatetag\src\main\java\au\com\dylangonzalez\ultimatetag\util\MessageType.java

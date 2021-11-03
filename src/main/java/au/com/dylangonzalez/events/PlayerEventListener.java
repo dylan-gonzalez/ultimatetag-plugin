@@ -1,5 +1,6 @@
-package au.com.dylangonzalez.ultimatetag;
+package au.com.dylangonzalez.events;
 
+import au.com.dylangonzalez.ultimatetag.UltimateTagPlugin;
 import au.com.dylangonzalez.ultimatetag.util.*;
 
 import org.bukkit.Bukkit;

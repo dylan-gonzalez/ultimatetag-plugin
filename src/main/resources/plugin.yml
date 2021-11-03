@@ -1,6 +1,7 @@
 main: au.com.dylangonzalez.ultimatetag.UltimateTagPlugin
 name: UltimateTag
-version: 0.1
+version: 1.0.0
+api-version: 1.16
 
 commands:
   hello:
@@ -9,3 +10,6 @@ commands:
   ultimatetag:
     description: Start an Ultimate Tag match between two players
     usage: /ultimatetag [start|restart] [<player> <player> | null]
+  gui:
+    description: Open up the custom GUI
+    usage: /gui
