@@ -13,3 +13,6 @@ commands:
   gui:
     description: Open up the custom GUI
     usage: /gui
+  manhunt:
+    description: Minecraft Manhunt
+    usage: /manhunt <runner>

@@ -5,11 +5,15 @@ import au.com.dylangonzalez.ultimatetag.util.*;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByBlockEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.event.player.PlayerRespawnEvent;
+import org.bukkit.inventory.ItemStack;
 
 public class PlayerEventListener implements Listener {
     @EventHandler
@@ -52,5 +56,30 @@ public class PlayerEventListener implements Listener {
                 }
             }
         }
+    }
+
+    @EventHandler
+    public void onPlayerRespawn(PlayerRespawnEvent event) {
+        Player player = (Player) event.getPlayer();
+
+        if (player.getName() != UltimateTagPlugin.manhuntRunner) {
+            ItemStack compass = new ItemStack(Material.COMPASS);
+            player.getInventory().addItem(compass);
+            player.setCompassTarget(Bukkit.getPlayer(UltimateTagPlugin.manhuntRunner).getLocation());
+        }
+    }
+
+    @EventHandler
+    public void onPlayerMove(PlayerMoveEvent event) {
+        Player player = (Player) event.getPlayer();
+
+        if (player.getName() == UltimateTagPlugin.manhuntRunner) {
+            for (Player _player : Bukkit.getOnlinePlayers()) {
+                if (_player.getName() != player.getName()) {
+                    Message.sendMessage(_player, "&9Current runner location: " + player.getLocation());
+                }
+            }
+        }
+
     }
 }

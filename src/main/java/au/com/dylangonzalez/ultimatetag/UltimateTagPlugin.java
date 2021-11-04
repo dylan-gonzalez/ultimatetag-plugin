@@ -4,6 +4,7 @@ import java.util.*;
 
 import au.com.dylangonzalez.events.GUIClickItemEvent;
 import au.com.dylangonzalez.ultimatetag.commands.GUICommand;
+import au.com.dylangonzalez.ultimatetag.commands.ManhuntCommand;
 import au.com.dylangonzalez.ultimatetag.commands.UltimateTagCommand;
 import au.com.dylangonzalez.ultimatetag.util.Message;
 import au.com.dylangonzalez.ultimatetag.util.Role;
@@ -38,16 +39,20 @@ public class UltimateTagPlugin extends JavaPlugin {
 
     public static final String GUITitle = "&bCustom GUI";
 
+    public static boolean MANHUNT = false;
+    public static String manhuntRunner = null;
+
     @Override
     public void onEnable() {
         // this.getCommand("hello").setExecutor(new HelloCommand());
-        this.getCommand("ultimatetag").setExecutor(new UltimateTagCommand(this));
-        this.getCommand("gui").setExecutor(new GUICommand(this));
+        // this.getCommand("ultimatetag").setExecutor(new UltimateTagCommand(this));
+        // this.getCommand("gui").setExecutor(new GUICommand(this));
+        this.getCommand("manhunt").setExecutor(new ManhuntCommand());
 
         getServer().getPluginManager().registerEvents(new GUIClickItemEvent(), this);
 
         BukkitScheduler scheduler = getServer().getScheduler();
-
+  
         scheduler.scheduleSyncRepeatingTask(this, new Runnable() {
             @Override
             public void run() {
@@ -68,8 +73,12 @@ public class UltimateTagPlugin extends JavaPlugin {
                             Message.broadcastMessage("&6The taggers have won the round!");
                             endGame();
                         }
-                        
+
                         timer--;
+                    }
+
+                    if (MANHUNT) {
+                        updateManhuntCompass();
                     }
                 } catch (Exception e) {
                     Bukkit.getLogger().info("ERROR - unexpected exception: " + e);
@@ -85,6 +94,27 @@ public class UltimateTagPlugin extends JavaPlugin {
 
         defaultRunnerItems.addAll(Arrays.asList(pickaxe, axe, shovel, cobblestone));
         defaultTaggerItems.addAll(Arrays.asList(pickaxe, axe, shovel, cobblestone, compass));
+    }
+    
+    public static void startManhunt(Player runner) {
+        ItemStack compass = new ItemStack(Material.COMPASS);
+
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            if (player.getName() != runner.getName()) {
+                player.getInventory().addItem(compass);
+                player.setCompassTarget(runner.getLocation());
+            }
+        }
+    }
+    
+    public static void updateManhuntCompass() {
+        Player runner = (Player) Bukkit.getPlayer(manhuntRunner);
+
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            if (player.getName() != runner.getName()) {
+                player.setCompassTarget(runner.getLocation());
+            }
+        }
     }
 
     @Override
